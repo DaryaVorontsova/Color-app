@@ -1,0 +1,26 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile  # Используем Dockerfile для фронтенда
+    ports:
+      - "3000:80"  # Порт для фронтенда
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile-backend  # Используем Dockerfile для бэкенда
+    ports:
+      - "5122:5122"  # Порт для бэкенда
+    volumes:
+      - ./uploads:/app/uploads  # Пример для монтирования папки с загрузками
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+ 

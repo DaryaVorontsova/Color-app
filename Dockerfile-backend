@@ -1,0 +1,24 @@
+# Dockerfile для бэкенда Flask
+# 1. Используем минимальный образ Python
+FROM python:3.10-slim
+
+# 2. Устанавливаем рабочую директорию
+WORKDIR /
+
+# 3. Копируем файл зависимостей
+COPY requirements.txt .
+
+# 4. Устанавливаем зависимости
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 5. Копируем все файлы приложения в контейнер
+COPY . .
+
+# 6. Создаем директорию для загрузок, если её нет
+RUN mkdir -p uploads
+
+# 7. Открываем порт (по умолчанию Flask будет работать на 5122)
+EXPOSE 5122
+
+# 8. Запускаем Flask-приложение
+CMD ["python", "main.py"]
