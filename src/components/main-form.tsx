@@ -122,7 +122,7 @@ export const MainForm = () => {
 
     console.log(JSON.stringify(sortData));
 
-    fetch('http://127.0.0.1:5122/sort', {
+    fetch('/sort', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -218,7 +218,7 @@ export const MainForm = () => {
                 }}
               >
                 <img
-                  src={`http://127.0.0.1:5122/files/${imageUrl}`}
+                  src={`/files/${imageUrl}`}
                   alt={`Uploaded ${index}`}
                   className="h-full w-full object-cover"
                 />
