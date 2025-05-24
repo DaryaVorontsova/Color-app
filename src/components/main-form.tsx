@@ -62,7 +62,7 @@ export const MainForm = () => {
 
       setLoading(true);
 
-      fetch('http://127.0.0.1:5122/upload', {
+      fetch('https://color-app-wj65.onrender.com/upload', {
         method: 'POST',
         body: formData,
       })
@@ -122,7 +122,7 @@ export const MainForm = () => {
 
     console.log(JSON.stringify(sortData));
 
-    fetch('/sort', {
+    fetch('https://color-app-wj65.onrender.com/sort', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
